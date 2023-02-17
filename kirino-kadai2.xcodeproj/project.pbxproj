@@ -11,6 +11,7 @@
 		FF0BA27F29A047010009855D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0BA27E29A047010009855D /* ContentView.swift */; };
 		FF0BA28129A047030009855D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF0BA28029A047030009855D /* Assets.xcassets */; };
 		FF0BA28429A047030009855D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF0BA28329A047030009855D /* Preview Assets.xcassets */; };
+		FF0BA28B29A048870009855D /* OperatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0BA28A29A048870009855D /* OperatorModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		FF0BA27E29A047010009855D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FF0BA28029A047030009855D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF0BA28329A047030009855D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FF0BA28A29A048870009855D /* OperatorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				FF0BA27C29A047010009855D /* kirino_kadai2App.swift */,
 				FF0BA27E29A047010009855D /* ContentView.swift */,
+				FF0BA28A29A048870009855D /* OperatorModel.swift */,
 				FF0BA28029A047030009855D /* Assets.xcassets */,
 				FF0BA28229A047030009855D /* Preview Content */,
 			);
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF0BA27F29A047010009855D /* ContentView.swift in Sources */,
+				FF0BA28B29A048870009855D /* OperatorModel.swift in Sources */,
 				FF0BA27D29A047010009855D /* kirino_kadai2App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
