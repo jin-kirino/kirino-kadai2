@@ -25,16 +25,16 @@ enum OperatorModel: String, CaseIterable {
         }
         switch self {
         case .addition:
-            result = String(unwerapLeftNumber + unwerapRightNumber)
+            result = String(Double(unwerapLeftNumber) + Double(unwerapRightNumber))
         case .subtraction:
-            result = String(unwerapLeftNumber - unwerapRightNumber)
+            result = String(Double(unwerapLeftNumber) - Double(unwerapRightNumber))
         case .multiplication:
-            result = String(unwerapLeftNumber * unwerapRightNumber)
+            result = String(Double(unwerapLeftNumber) * Double(unwerapRightNumber))
         case .division:
             if unwerapRightNumber == 0 {
                 result = "割る数には０以外を入れてください"
             } else {
-                result = String(unwerapLeftNumber * unwerapRightNumber)
+                result = String(Double(unwerapLeftNumber) / Double(unwerapRightNumber))
             }
         }
         return result

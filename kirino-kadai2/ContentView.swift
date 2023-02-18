@@ -16,30 +16,42 @@ struct ContentView: View {
     @State private var calculationResults: String = "0.0"
     // OperatorModelのインスタンス
     @State private var operatorModel: OperatorModel = .addition
-    // 仮の4つ
-    private let shisokuenzan = ["+", "-", "×", "÷"]
-    @State var selection = "+"
 
     var body: some View {
-        VStack {
-            TextField("", text: $firstNumber)
-            TextField("", text: $secondNumber)
-            Picker(selection: $operatorModel, label: Text("")) {
-                ForEach(Array(OperatorModel.allCases), id: \.self) { index in
-                    Text(index.rawValue)
+        HStack {
+            VStack {
+                TextField("", text: $firstNumber)
+                    .frame(width: 200)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                TextField("", text: $secondNumber)
+                    .frame(width: 200)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                Picker(selection: $operatorModel, label: Text("")) {
+                    ForEach(Array(OperatorModel.allCases), id: \.self) { index in
+                        Text(index.rawValue)
+                            .foregroundColor(.blue)
+                    }
                 }
+                .pickerStyle(.segmented)
+                .frame(width: 200)
+                Button {
+                    // Pickerで選択した演算子で計算する
+                    calculationResults = operatorModel.didButtonAction(leftSideNumber: firstNumber,
+                                                                       rightSideNumber: secondNumber)
+                } label: {
+                    Text("Button")
+                }
+                .padding()
+                HStack {
+                    Text(calculationResults)
+                    Spacer()
+                }
+                Spacer()
             }
-            .pickerStyle(.segmented)
-            Button {
-                // Pickerで選択した演算子で計算する
-                calculationResults = operatorModel.didButtonAction(leftSideNumber: firstNumber, rightSideNumber: secondNumber)
-            } label: {
-                Text("Button")
-            }
-            Text(calculationResults)
+            Spacer()
+                .frame(width: 50)
         }
-        .frame(width: 200)
-        .textFieldStyle(RoundedBorderTextFieldStyle())
+        .padding()
     }
 }
 
