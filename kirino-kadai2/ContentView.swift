@@ -20,34 +20,37 @@ struct ContentView: View {
     var body: some View {
         HStack {
             VStack {
-                TextField("", text: $firstNumber)
-                    .frame(width: 200)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                TextField("", text: $secondNumber)
-                    .frame(width: 200)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                Picker(selection: $operatorModel, label: Text("")) {
-                    ForEach(Array(OperatorModel.allCases), id: \.self) { index in
-                        Text(index.rawValue)
-                            .foregroundColor(.blue)
+                VStack {
+                    TextField("", text: $firstNumber)
+                    TextField("", text: $secondNumber)
+                    Picker(selection: $operatorModel, label: Text("")) {
+                        ForEach(Array(OperatorModel.allCases), id: \.self) { index in
+                            Text(index.rawValue)
+                                .foregroundColor(.blue)
+                        }
                     }
+                    .pickerStyle(.segmented)
                 }
-                .pickerStyle(.segmented)
                 .frame(width: 200)
+
                 Button {
                     // Pickerで選択した演算子で計算する
-                    calculationResults = operatorModel.didButtonAction(leftSideNumber: firstNumber,
-                                                                       rightSideNumber: secondNumber)
+                    calculationResults = operatorModel.didButtonAction(leftNumberText: firstNumber,
+                                                                       rightNumberText: secondNumber)
                 } label: {
                     Text("Button")
                 }
                 .padding()
+
                 HStack {
                     Text(calculationResults)
                     Spacer()
                 }
+                
                 Spacer()
             }
+            .textFieldStyle(RoundedBorderTextFieldStyle())
+
             Spacer()
                 .frame(width: 50)
         }

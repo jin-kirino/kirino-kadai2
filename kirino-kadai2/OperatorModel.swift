@@ -13,31 +13,28 @@ enum OperatorModel: String, CaseIterable {
     case multiplication = "×"
     case division = "÷"
 
-    func didButtonAction(leftSideNumber: String, rightSideNumber: String) -> String {
-        var result: String = ""
-        guard let unwerapLeftNumber = Int(leftSideNumber) else {
-            print("left:数字以外が入力された")
-            return result
+    func didButtonAction(leftNumberText: String, rightNumberText: String) -> String {
+        guard let leftNumber = Double(leftNumberText) else {
+            return ""
         }
-        guard let unwerapRightNumber = Int(rightSideNumber) else {
-            print("right:数字以外が入力された")
-            return result
+        guard let rightNumber = Double(rightNumberText) else {
+            return ""
         }
+
         switch self {
         case .addition:
-            result = String(Double(unwerapLeftNumber) + Double(unwerapRightNumber))
+            return String(leftNumber + rightNumber)
         case .subtraction:
-            result = String(Double(unwerapLeftNumber) - Double(unwerapRightNumber))
+            return String(leftNumber - rightNumber)
         case .multiplication:
-            result = String(Double(unwerapLeftNumber) * Double(unwerapRightNumber))
+            return String(leftNumber * rightNumber)
         case .division:
-            if unwerapRightNumber == 0 {
-                result = "割る数には０以外を入れてください"
+            if rightNumber == 0 {
+                return "割る数には０以外を入れてください"
             } else {
-                result = String(Double(unwerapLeftNumber) / Double(unwerapRightNumber))
+                return String(leftNumber / rightNumber)
             }
         }
-        return result
     }
 }
 
