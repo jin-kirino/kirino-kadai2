@@ -33,9 +33,12 @@ struct ContentView: View {
                 .pickerStyle(.segmented)
                 .frame(width: 200)
                 Button {
+                    print(firstNumber)
+                    print(secondNumber)
                     // Pickerで選択した演算子で計算する
-                    calculationResults = operatorModel.didButtonAction(leftSideNumber: firstNumber,
+                calculationResults = operatorModel.didButtonAction(leftSideNumber: firstNumber,
                                                                        rightSideNumber: secondNumber)
+                    print(calculationResults)
                 } label: {
                     Text("Button")
                 }
