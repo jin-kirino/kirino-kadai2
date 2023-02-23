@@ -22,10 +22,8 @@ struct ContentView: View {
             VStack {
                 TextField("", text: $firstNumber)
                     .frame(width: 200)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
                 TextField("", text: $secondNumber)
                     .frame(width: 200)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
                 Picker(selection: $operatorModel, label: Text("")) {
                     ForEach(Array(OperatorModel.allCases), id: \.self) { index in
                         Text(index.rawValue)
@@ -48,6 +46,7 @@ struct ContentView: View {
                 }
                 Spacer()
             }
+            .textFieldStyle(RoundedBorderTextFieldStyle())
             Spacer()
                 .frame(width: 50)
         }
